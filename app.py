@@ -2,6 +2,7 @@ from flask import Flask
 from controllers import user_controller, file_controller
 from flask_cors import CORS
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
@@ -21,5 +22,7 @@ def hello_world():
 load_dotenv()
 cors = CORS(app)
 
+host = os.getenv('HOST')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=host, debug=True)
